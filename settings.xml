@@ -5,95 +5,15 @@
 	xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
 	http://maven.apache.org/xsd/settings-1.0.0.xsd">
 	
-	<localRepository>E:\xxx</localRepository>
-	
-	<servers>
-		<server>
-			<id>public</id>
-			<username>admin</username>
-			<password>admin123</password>
-		</server>
-		<server>
-			<id>snapshots</id>
-			<username>admin</username>
-			<password>admin123</password>
-		</server>
-		<server>
-			<id>releases</id>
-			<username>admin</username>
-			<password>admin123</password>
-		</server>
-	</servers>
+	<localRepository>xxx</localRepository>
 	
 	<mirrors>
 		<mirror>
-			<id>public</id>
-			<mirrorOf>public</mirrorOf>
-			<url>http://nexus.xxx.com/content/repositories/public/</url>
-		</mirror>
-		<mirror>
-			<id>snapshots</id>
-			<mirrorOf>snapshots</mirrorOf>
-			<url>http://nexus.xxx.com/content/repositories/snapshots/</url>
-		</mirror>
-		<mirror>
-			<id>releases</id>
-			<mirrorOf>releases</mirrorOf>
-			<url>http://nexus.xxx.com/content/repositories/releases/</url>
-		</mirror>
+			<id>nexus-aliyun</id>
+			<mirrorOf>*</mirrorOf>
+			<name>Nexus aliyun</name>
+			<url>http://maven.aliyun.com/nexus/content/groups/public</url>
+		</mirror> 
 	</mirrors>
-	
-	<profiles>
-		<profile>
-			<id>jdk-1.8</id>
-			<activation>
-				<activeByDefault>true</activeByDefault>
-				<jdk>1.8</jdk>
-			</activation>
-			<properties>
-				<maven.compiler.source>1.8</maven.compiler.source>
-				<maven.compiler.target>1.8</maven.compiler.target>
-				<maven.compiler.compilerVersion>1.8</maven.compiler.compilerVersion>
-			</properties>
-		</profile>
-		<profile>
-			<id>nexus</id>
-			<repositories>
-				<repository>
-					<id>public</id>
-					<name>public</name>
-					<url>http://nexus.xxx.com/content/repositories/public/</url>
-					<releases>
-						<enabled>true</enabled>
-					</releases>
-					<snapshots>
-						<enabled>true</enabled>
-<!--                        <updatePolicy>always</updatePolicy>  -->
-<!--                        <checksumPolicy>warn</checksumPolicy>  -->
-					</snapshots>
-				</repository>
-			</repositories>
-			<pluginRepositories>
-				<pluginRepository>
-					<id>public</id>
-					<name>public</name>
-					<url>http://nexus.xxx.com/content/repositories/public/</url>
-					<releases>
-						<enabled>true</enabled>
-					</releases>
-					<snapshots>
-						<enabled>true</enabled>
-<!--                        <updatePolicy>always</updatePolicy>  -->
-<!--                        <checksumPolicy>warn</checksumPolicy>  -->
-					</snapshots>
-				</pluginRepository>
-			</pluginRepositories>
-		</profile>
-	</profiles>	
-	
-	<activeProfiles>
-		<activeProfile>nexus</activeProfile>
-	</activeProfiles>
-	
 	
 </settings>
